@@ -4,7 +4,7 @@ const postcssImport = require('postcss-import');
 const cssMqpacker = require('css-mqpacker');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = (env, options) => {
   const isProd = options.mode === 'production';
@@ -49,7 +49,8 @@ module.exports = (env, options) => {
             {
               loader: 'css-loader',
               options: {
-                importLoaders: 1
+                importLoaders: 1,
+                url: false
               }
             },
             {
