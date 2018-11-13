@@ -109,7 +109,14 @@ window.addEventListener('load', () => {
     const target = e.target;
     
     if (target.tagName === 'LI') {
-      const value = parseInt(target.innerText);
+      let value = parseInt(target.innerText);
+      
+      if (target.innerText === '\u00ab') {
+        value = paginationParameters.get('page') - 1;
+      } else if (target.innerText === '\u00bb') {
+        value = paginationParameters.get('page') + 1;
+      }
+      
       if (value && value !== paginationParameters.get('page')) {
         setPaginationParameters({
           pageSize: 20,
