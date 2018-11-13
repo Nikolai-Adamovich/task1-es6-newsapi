@@ -15,6 +15,7 @@ const fetchNews = () => {
     if (data.status === 'ok') {
       if (data.totalResults > 0) {
         drawNewsList(data.articles);
+        window.scrollTo(0, 0);
         
         if (data.totalResults > paginationParameters.get('pageSize')) {
           new Pagination(paginationRoot, data.totalResults, paginationParameters.get('pageSize'), paginationParameters.get('page') || 1);
